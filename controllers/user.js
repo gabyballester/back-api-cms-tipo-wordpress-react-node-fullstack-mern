@@ -20,7 +20,6 @@ function signUp(req, res) {
   if (!password || !repeatPassword) {
     res.status(404).send({ message: "Las contraseñas son obligatorias." });
   } else {
-    console.log('continuar');
     if (password !== repeatPassword) {
       res.status(404).send({ message: "Las contraseñas no son iguales." });
     } else {
