@@ -81,27 +81,27 @@ function signIn(req, res) {
   });
 }
 
-// function getUsers(req, res) {
-//   User.find().then(users => {
-//     if (!users) {
-//       res.status(404).send({ message: "No se ha encontrado ningun usuario." });
-//     } else {
-//       res.status(200).send({ users });
-//     }
-//   });
-// }
+function getUsers(req, res) {
+  User.find().then(users => {
+    if (!users) {
+      res.status(404).send({ message: "No se ha encontrado ningun usuario." });
+    } else {
+      res.status(200).send({ users });
+    }
+  });
+}
 
-// function getUsersActive(req, res) {
-//   const query = req.query;
+function getUsersActive(req, res) {
+  const query = req.query;
 
-//   User.find({ active: query.active }).then(users => {
-//     if (!users) {
-//       res.status(404).send({ message: "No se ha encontrado ningun usuario." });
-//     } else {
-//       res.status(200).send({ users });
-//     }
-//   });
-// }
+  User.find({ active: query.active }).then(users => {
+    if (!users) {
+      res.status(404).send({ message: "No se ha encontrado ningun usuario." });
+    } else {
+      res.status(200).send({ users });
+    }
+  });
+}
 
 // function uploadAvatar(req, res) {
 //   const params = req.params;
@@ -280,9 +280,9 @@ function signIn(req, res) {
 
 module.exports = {
   signUp,
-    signIn,
-  //   getUsers,
-  //   getUsersActive,
+  signIn,
+  getUsers,
+  getUsersActive,
   //   uploadAvatar,
   //   getAvatar,
   //   updateUser,
