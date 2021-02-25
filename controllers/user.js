@@ -169,6 +169,36 @@ function getAvatar(req, res) {
   });
 }
 
+async function updateUser(req, res) {
+  let userData = req.body;
+  userData.email = req.body.email.toLowerCase();
+  const params = req.params;
+
+  if (userData.password) {
+    await bcrypt.hash(userData.password, null, null, (err, hash) => {
+      if (err) {
+        res.status(500).send({ message: "Error al encriptar la contraseña." });
+      } else {
+        userData.password = hash;
+      }
+    });
+  }
+
+  User.findByIdAndUpdate({ _id: params.id }, userData, (err, userUpdate) => {
+    if (err) {
+      res.status(500).send({ message: "Error del servidor." });
+    } else {
+      if (!userUpdate) {
+        res
+          .status(404)
+          .send({ message: "No se ha encontrado ningun usuario." });
+      } else {
+        res.status(200).send({ message: "Usuario actualizado correctamente." });
+      }
+    }
+  });
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -176,7 +206,7 @@ module.exports = {
   getUsersActive,
   uploadAvatar,
   getAvatar,
-  //   updateUser,
+  updateUser,
   //   activateUser,
   //   deleteUser,
   //   signUpAdmin
