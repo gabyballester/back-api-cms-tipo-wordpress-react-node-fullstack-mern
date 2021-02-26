@@ -106,9 +106,6 @@ function getUsersActive(req, res) {
 function uploadAvatar(req, res) {
   const params = req.params;
 
-  console.log('upload avatar');
-  console.log(params);
-
   User.findById({ _id: params.id }, (err, userData) => {
     if (err) {
       res.status(500).send({ message: "Error del servidor." });
@@ -121,7 +118,6 @@ function uploadAvatar(req, res) {
           let filePath = req.files.avatar.path;
           let fileSplit = filePath.split("\\");
           let fileName = fileSplit[2];
-          console.log(fileName);
           let extSplit = fileName.split(".");
           let fileExt = extSplit[1];
 
@@ -156,7 +152,6 @@ function uploadAvatar(req, res) {
 }
 
 function getAvatar(req, res) {
-  console.log('getAvatar');
   const avatarName = req.params.avatarName;
   const filePath = "./uploads/avatar/" + avatarName;
 
@@ -199,6 +194,29 @@ async function updateUser(req, res) {
   });
 }
 
+function activateUser(req, res) {
+  const { id } = req.params;
+  const { active } = req.body;
+  
+  User.findByIdAndUpdate(id, { active }, (err, userStored) => {
+    if (err) {
+      res.status(500).send({ message: "Error del servidor." });
+    } else {
+      if (!userStored) {
+        res.status(404).send({ message: "Usuario no encontrado." });
+      } else {
+        if (active === true) {
+          res.status(200).send({ message: "Usuario activado correctamente." });
+        } else {
+          res
+            .status(200)
+            .send({ message: "Usuario desactivado correctamente." });
+        }
+      }
+    }
+  });
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -207,7 +225,5 @@ module.exports = {
   uploadAvatar,
   getAvatar,
   updateUser,
-  //   activateUser,
-  //   deleteUser,
-  //   signUpAdmin
+  activateUser
 };
