@@ -84,7 +84,7 @@ function signIn(req, res) {
 function getUsers(req, res) {
   User.find().then(users => {
     if (!users) {
-      res.status(404).send({ message: "No se ha encontrado ningun usuario." });
+      res.status(404).send({ message: "No se ha encontrado ningún usuario." });
     } else {
       res.status(200).send({ users });
     }
@@ -96,7 +96,7 @@ function getUsersActive(req, res) {
 
   User.find({ active: query.active }).then(users => {
     if (!users) {
-      res.status(404).send({ message: "No se ha encontrado ningun usuario." });
+      res.status(404).send({ message: "No se ha encontrado ningún usuario." });
     } else {
       res.status(200).send({ users });
     }
@@ -111,7 +111,7 @@ function uploadAvatar(req, res) {
       res.status(500).send({ message: "Error del servidor." });
     } else {
       if (!userData) {
-        res.status(404).send({ message: "No se ha encontrado ningun usuario." });
+        res.status(404).send({ message: "No se ha encontrado ningún usuario." });
       } else {
         let user = userData;
         if (req.files) { //nombre dado (avatar)
@@ -137,7 +137,7 @@ function uploadAvatar(req, res) {
                 } else {
                   if (!userResult) {
                     res.status(404)
-                      .send({ message: "No se ha encontrado ningun usuario." });
+                      .send({ message: "No se ha encontrado ningún usuario." });
                   } else {
                     res.status(200).send({ avatarName: fileName });
                   }
@@ -186,7 +186,7 @@ async function updateUser(req, res) {
       if (!userUpdate) {
         res
           .status(404)
-          .send({ message: "No se ha encontrado ningun usuario." });
+          .send({ message: "No se ha encontrado ningún usuario." });
       } else {
         res.status(200).send({ message: "Usuario actualizado correctamente." });
       }

@@ -48,7 +48,7 @@ function updateMenu(req, res) {
       res.status(500).send({ message: "Error del servidor." });
     } else {
       if (!menuUpdate) {
-        res.status(404).send({ message: "No se ha encontrado ningun menu." });
+        res.status(404).send({ message: "No se ha encontrado ningún menu." });
       } else {
         res.status(200).send({ message: "Menu actualizado correctamente." });
       }

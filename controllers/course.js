@@ -34,7 +34,7 @@ function getCourses(req, res) {
         if (!coursesStored) {
           res
             .status(404)
-            .send({ code: 404, message: "No se ha encontrado ningun curso." });
+            .send({ code: 404, message: "No se ha encontrado ningún curso." });
         } else {
           res.status(200).send({ code: 200, courses: coursesStored });
         }
@@ -72,7 +72,7 @@ function updateCourse(req, res) {
       if (!courseUpdate) {
         res
           .status(404)
-          .send({ code: 404, message: "No se ha encontrado ningun curso." });
+          .send({ code: 404, message: "No se ha encontrado ningún curso." });
       } else {
         res
           .status(200)
