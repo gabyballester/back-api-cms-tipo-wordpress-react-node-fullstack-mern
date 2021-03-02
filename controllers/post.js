@@ -1,7 +1,6 @@
 const Post = require("../models/post");
 
 function addPost(req, res) {
-  console.log('Creando post..');
   const body = req.body;
   const post = new Post(body);
 
@@ -22,6 +21,31 @@ function addPost(req, res) {
   });
 }
 
+function getPosts(req, res) {
+  const { page = 1, limit = 10 } = req.query;
+
+  const options = {
+    page,
+    limit: parseInt(limit),
+    sort: { date: "desc" }
+  };
+
+  Post.paginate({}, options, (err, postsStored) => {
+    if (err) {
+      res.status(500).send({ code: 500, message: "Error del servidor." });
+    } else {
+      if (!postsStored) {
+        res
+          .status(404)
+          .send({ code: 404, message: "No se ha encontrado ningún post." });
+      } else {
+        res.status(200).send({ code: 200, posts: postsStored });
+      }
+    }
+  });
+}
+
 module.exports = {
   addPost,
+  getPosts
 };
