@@ -85,9 +85,28 @@ function deletePost(req, res) {
   });
 }
 
+function getPost(req, res) {
+  const { url } = req.params;
+
+  Post.findOne({ url }, (err, postStored) => {
+    if (err) {
+      res.status(500).send({ code: 500, message: "Error del servidor." });
+    } else {
+      if (!postStored) {
+        res
+          .status(404)
+          .send({ code: 404, message: "Post no encontrado." });
+      } else {
+        res.status(200).send({ code: 200, post: postStored });
+      }
+    }
+  });
+}
+
 module.exports = {
   addPost,
   getPosts,
   updatePost,
-  deletePost
+  deletePost,
+  getPost
 };
