@@ -4,9 +4,10 @@ const { API_VERSION, IP_SERVER, PORT_DB, port, DB_NAME } = require("./config");
 
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
+const db = 'mongodb+srv://admin:YFSeJaieZReeMkCy@web-personal.4hz73.mongodb.net/web-personal?retryWrites=true&w=majority'
+// `mongodb://${IP_SERVER}:${PORT_DB}/${DB_NAME}`,
 
-mongoose.connect(
-  `mongodb://${IP_SERVER}:${PORT_DB}/${DB_NAME}`,
+mongoose.connect(db,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, res) => {
     if (err) {
