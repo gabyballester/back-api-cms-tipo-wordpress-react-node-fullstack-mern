@@ -5,8 +5,7 @@ const { API_VERSION, IP_SERVER, PORT_DB, port, DB_NAME } = require("./config");
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 const db = 'mongodb+srv://admin:YFSeJaieZReeMkCy@web-personal.4hz73.mongodb.net/web-personal?retryWrites=true&w=majority'
-// `mongodb://${IP_SERVER}:${PORT_DB}/${DB_NAME}`,
-
+// const db = `mongodb://${IP_SERVER}:${PORT_DB}/${DB_NAME}`;
 mongoose.connect(db,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, res) => {
@@ -19,7 +18,6 @@ mongoose.connect(db,
         console.log("######################");
         console.log("###### API REST ######");
         console.log("######################");
-        console.log(`http://${IP_SERVER}:${port}/api/${API_VERSION}/`);
       });
     }
   }
