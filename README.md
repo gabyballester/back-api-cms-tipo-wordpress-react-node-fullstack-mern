@@ -2,7 +2,7 @@
 
 - Este repositorio es sólo el backend de este proyecto.
 - El repo del frontend lo encontrarás aquí:  
-[https://github.com/gabyballester/front-cms-tipo-wordpress-react-node](https://github.com/gabyballester/front-cms-tipo-wordpress-react-node)
+[https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context](https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context)
 ***
 
 #### 1. Instalar dependencias
