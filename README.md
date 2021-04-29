@@ -1,7 +1,6 @@
-### Proyecto CMS similar a Wordpress, creado con React + Node
+### Proyecto CMS similar a Wordpress, creado con React + Node (Fullstack MERN)
 
-- Este repositorio es sólo el backend de este proyecto.
-- El repo del frontend lo encontrarás aquí:  
+Este repositorio es sólo el **backend** de este proyecto, el frontend lo encontrarás aquí:
 [https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context](https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context)
 ***
 
