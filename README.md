@@ -1,7 +1,7 @@
 ### Proyecto CMS similar a Wordpress, creado con React + Node (Fullstack MERN)
 
 Este repositorio es sólo el **backend** de este proyecto, el frontend lo encontrarás aquí:
-[https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context](https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context)
+[https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context-fullstack-mern](https://github.com/gabyballester/front-cms-tipo-wordpress-react-hooks-context-fullstack-mern)
 ***
 
 #### 1. Instalar dependencias
